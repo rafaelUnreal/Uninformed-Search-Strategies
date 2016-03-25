@@ -8,10 +8,11 @@
 #include <unistd.h>
 #include <unordered_set>
 #include <breadthFirstSearch.h>
+#include <list>
 
 
 int main() {	
-	vector<int> initialState = {6,3,8,0,2,4,1,5,7};	
+	vector<int> initialState = {1,2,3,4,0,5,6,7,8};	
 	initialize(initialState);
 	breadthSearch();	
 	return 0;

@@ -3,7 +3,7 @@ using namespace std;
 
 vector<int> goalState = {1,2,3,4,5,6,7,8,0};
 set<vector<int> > visitedStates;
-set<vector<int> > toVisit;
+list<vector<int> > toVisitStates;
 vector<int> currentState;
 
 // qual linha está v[i]? é dada por (i/N)
@@ -44,7 +44,7 @@ void moveFunction(vector<int> vectorPuzzle, int zeroPosition){
         swap(vectorPuzzleTmp[zeroPositionTmp], vectorPuzzleTmp[zeroPositionTmp-1]);
         zeroPositionTmp = zeroPositionTmp-1;
 		if(!(std::find(visitedStates.begin(), visitedStates.end(), vectorPuzzleTmp) != visitedStates.end()))
-			toVisit.insert(vectorPuzzleTmp);	
+			toVisitStates.push_front(vectorPuzzleTmp);	
 		visitedStates.insert(visitedStates.begin(),vectorPuzzleTmp);			
     }
 	// Cima	
@@ -54,7 +54,7 @@ void moveFunction(vector<int> vectorPuzzle, int zeroPosition){
         swap(vectorPuzzleTmp[zeroPositionTmp],vectorPuzzleTmp[zeroPositionTmp-problemSize]);
         zeroPositionTmp = zeroPositionTmp-problemSize;
 		if(!(std::find(visitedStates.begin(), visitedStates.end(), vectorPuzzleTmp) != visitedStates.end()))
-			toVisit.insert(vectorPuzzleTmp);	
+			toVisitStates.push_front(vectorPuzzleTmp);	
 		visitedStates.insert(visitedStates.begin(),vectorPuzzleTmp);	
     }	
 	// Direita 	
@@ -64,7 +64,7 @@ void moveFunction(vector<int> vectorPuzzle, int zeroPosition){
         swap(vectorPuzzleTmp[zeroPositionTmp],vectorPuzzleTmp[zeroPositionTmp+1]);
         zeroPositionTmp = zeroPositionTmp+1;			
 		if(!(std::find(visitedStates.begin(), visitedStates.end(), vectorPuzzleTmp) != visitedStates.end()))
-			toVisit.insert(vectorPuzzleTmp);	
+			toVisitStates.push_front(vectorPuzzleTmp);	
 		visitedStates.insert(visitedStates.begin(),vectorPuzzleTmp);	
     }
 	// Baixo	
@@ -74,7 +74,7 @@ void moveFunction(vector<int> vectorPuzzle, int zeroPosition){
         swap(vectorPuzzleTmp[zeroPositionTmp], vectorPuzzleTmp[zeroPositionTmp+problemSize]);
         zeroPositionTmp = zeroPositionTmp + problemSize; 
 		if(!(std::find(visitedStates.begin(), visitedStates.end(), vectorPuzzleTmp) != visitedStates.end()))
-			toVisit.insert(vectorPuzzleTmp);		
+			toVisitStates.push_front(vectorPuzzleTmp);		
 		visitedStates.insert(visitedStates.begin(),vectorPuzzleTmp);
     }  
 }
@@ -97,12 +97,11 @@ int getZeroPosition(vector<int> state){
 
 void breadthSearch(){
 	int numberOfIterations = 0;
-	toVisit.insert(*visitedStates.begin());
+	toVisitStates.push_front(*visitedStates.begin());
 // && currentDepth < maxDepth
-	showState(*toVisit.begin());
-	while(!toVisit.empty()){		
-		currentState = *toVisit.begin();
-		toVisit.erase(currentState);		
+	while(!toVisitStates.empty()){		
+		currentState = *toVisitStates.begin();
+		toVisitStates.erase(toVisitStates.begin());		
 		if(isGoalState(currentState)){
 			cout << endl;
 			showState(currentState);
