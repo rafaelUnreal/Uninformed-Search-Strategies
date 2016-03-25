@@ -37,7 +37,7 @@ void initialize(vector<int> state){
 }
 
 void moveFunction(vector<int> vectorPuzzle, int zeroPosition){  		
-	// Esquerda	
+	// Left	
 	vector<int> vectorPuzzleTmp = vectorPuzzle;
 	int zeroPositionTmp = zeroPosition;
     if ((zeroPositionTmp % problemSize > 0)){		
@@ -47,7 +47,7 @@ void moveFunction(vector<int> vectorPuzzle, int zeroPosition){
 			toVisitStates.push_front(vectorPuzzleTmp);	
 		visitedStates.insert(visitedStates.begin(),vectorPuzzleTmp);			
     }
-	// Cima	
+	// Up	
 	vectorPuzzleTmp = vectorPuzzle;
 	zeroPositionTmp = zeroPosition;	
     if ((zeroPositionTmp/problemSize > 0)){			
@@ -57,7 +57,7 @@ void moveFunction(vector<int> vectorPuzzle, int zeroPosition){
 			toVisitStates.push_front(vectorPuzzleTmp);	
 		visitedStates.insert(visitedStates.begin(),vectorPuzzleTmp);	
     }	
-	// Direita 	
+	// Right 	
 	vectorPuzzleTmp = vectorPuzzle;
 	zeroPositionTmp = zeroPosition;	
     if (( zeroPositionTmp % problemSize < problemSize-1)){			
@@ -67,7 +67,7 @@ void moveFunction(vector<int> vectorPuzzle, int zeroPosition){
 			toVisitStates.push_front(vectorPuzzleTmp);	
 		visitedStates.insert(visitedStates.begin(),vectorPuzzleTmp);	
     }
-	// Baixo	
+	// Down	
 	vectorPuzzleTmp = vectorPuzzle;
 	zeroPositionTmp = zeroPosition;	
     if ((zeroPositionTmp/problemSize < problemSize-1)){
