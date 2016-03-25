@@ -6,16 +6,16 @@ set<vector<int> > visitedStates;
 list<vector<int> > toVisitStates;
 vector<int> currentState;
 
-// qual linha está v[i]? é dada por (i/N)
-// qual coluna está v[i]? é dado por i mod N
+// which row is v[i]? it's given by (i/N)
+// which column is v[i]? it's given by (i mod N)
 
-//quando é que posso mover para a direita?
+//when can I move right?
 // if ( i mod N < N-1)
-//quando é que posso mover para a esquerda?
+//when can I move left?
 // if (i mod N > 0)
-//quando é que posso mover para cima?
+//when can I move up?
 // if( i/N > 0)
-//quando é que posso mover para baixo?
+//when can I move down?
 // if (i/N < N-1)
 
 //class Node{
