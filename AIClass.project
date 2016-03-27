@@ -22,6 +22,7 @@
   <VirtualDirectory Name="src">
     <File Name="main.cpp"/>
     <File Name="breadthFirstSearch.h"/>
+    <File Name="dephtFirstSearch.h"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>

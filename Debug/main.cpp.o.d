@@ -1,3 +1,3 @@
-Debug/main.cpp.o: main.cpp breadthFirstSearch.h
+Debug/main.cpp.o: main.cpp dephtFirstSearch.h
 
-breadthFirstSearch.h:
+dephtFirstSearch.h:

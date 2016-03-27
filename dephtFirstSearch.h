@@ -95,13 +95,13 @@ int getZeroPosition(vector<int> state){
 	return 1;
 }
 
-void breadthSearch(){
+void dephtSearch(){
 	int numberOfIterations = 0;
-	toVisitStates.push_front(*visitedStates.begin());
+	toVisitStates.push_back(*visitedStates.begin());
 // && currentDepth < maxDepth
 	while(!toVisitStates.empty()){		
-		currentState = *toVisitStates.begin();
-		toVisitStates.erase(toVisitStates.begin());		
+		currentState = *toVisitStates.crbegin();
+		toVisitStates.pop_back();		
 		if(isGoalState(currentState)){
 			cout << endl;
 			showState(currentState);

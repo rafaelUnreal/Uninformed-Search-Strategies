@@ -7,13 +7,13 @@
 #include <list>
 #include <unistd.h>
 #include <unordered_set>
-#include <breadthFirstSearch.h>
+#include <dephtFirstSearch.h>
 #include <list>
 
 
 int main() {	
-	vector<int> initialState = {1,2,3,4,0,5,6,7,8};	
+	vector<int> initialState = {1,5,0,7,6,3,4,2,8};	
 	initialize(initialState);
-	breadthSearch();	
+	dephtSearch();	
 	return 0;
 }
