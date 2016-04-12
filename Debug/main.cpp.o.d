@@ -1,3 +1,5 @@
-Debug/main.cpp.o: main.cpp dephtFirstSearch.h
+Debug/main.cpp.o: main.cpp Node.h iterativeDephtFirstSearch.h
 
-dephtFirstSearch.h:
+Node.h:
+
+iterativeDephtFirstSearch.h:

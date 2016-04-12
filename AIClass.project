@@ -23,6 +23,9 @@
     <File Name="main.cpp"/>
     <File Name="breadthFirstSearch.h"/>
     <File Name="dephtFirstSearch.h"/>
+    <File Name="Node.h"/>
+    <File Name="dephtFirstSearchNode.h"/>
+    <File Name="iterativeDephtFirstSearch.h"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>

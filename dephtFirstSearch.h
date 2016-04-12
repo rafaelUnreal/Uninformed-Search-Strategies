@@ -1,6 +1,9 @@
 #define problemSize 3
 using namespace std;
 
+//Here are the vector that reffers the goal state, the set of visited states and a list of 
+//states to visit. Here also is the current state. This means the state that will change
+//when the algorithm runs.
 vector<int> goalState = {1,2,3,4,5,6,7,8,0};
 set<vector<int> > visitedStates;
 list<vector<int> > toVisitStates;
@@ -25,6 +28,7 @@ vector<int> currentState;
 //	vector<int> 
 //}
 
+//This procedure shows the state passed by parameter
 void showState(vector<int> state){
 	cout << endl;
 	for(int i = 0; i < state.size(); i++){
@@ -32,10 +36,15 @@ void showState(vector<int> state){
 	}
 }
 
+//This procedure put the first state into the visitedStates set for being used 
+//when the algorithm starts
 void initialize(vector<int> state){	
 	visitedStates.insert(state);	
 }
 
+//The move function recieve two parameters, the current state and the zero 
+//position of that state. The function also has 4 if statement which generate
+//the children nodes.
 void moveFunction(vector<int> vectorPuzzle, int zeroPosition){  		
 	// Left	
 	vector<int> vectorPuzzleTmp = vectorPuzzle;
@@ -79,6 +88,7 @@ void moveFunction(vector<int> vectorPuzzle, int zeroPosition){
     }  
 }
 
+//This function returns a boolean that answers if it's or not
 bool isGoalState(vector<int> state){
 	for(int i = 0; i < state.size(); i++){
 		if (state[i] != goalState[i])
@@ -87,6 +97,7 @@ bool isGoalState(vector<int> state){
 	return true;
 }
 
+//This function returns the zero element's position
 int getZeroPosition(vector<int> state){
 	for(int i = 0; i < state.size(); i++){
 		if(state[i] == 0)
@@ -95,6 +106,8 @@ int getZeroPosition(vector<int> state){
 	return 1;
 }
 
+//This procedure just execute a while loop till the visit states
+//being empty or the goal state being found.
 void dephtSearch(){
 	int numberOfIterations = 0;
 	toVisitStates.push_back(*visitedStates.begin());
@@ -110,7 +123,7 @@ void dephtSearch(){
 		}else{					
 			cout << endl;
 			cout << numberOfIterations;			
-			showState(currentState);			
+			//showState(currentState);			
 			moveFunction(currentState, getZeroPosition(currentState));					
 		}
 		numberOfIterations++;
